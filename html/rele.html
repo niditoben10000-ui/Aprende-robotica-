@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/arduino-logo.svg">
+    <title>Módulo Relé: Control de Alta Potencia - Aprende Robótica</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../img/home-2-svgrepo-com.svg" alt="Logo Arduino" class="logo">
+        </a>
+        <div class="header-buttons">
+        <button id="volver" class="btn-volver"><i class="bi bi-arrow-left"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Relés: El Puente hacia el Alto Voltaje</h1>
+            <p>El relé actúa como un puente seguro entre el mundo de bajo voltaje del Arduino (5V) y la potencia de la red eléctrica doméstica. Es un <span>interruptor electromecánico</span> esencial para domotizar dispositivos reales.</p>
+        </section>
+
+        <hr>
+
+        <section id="categorias">
+            <h2>Especificaciones del Relé</h2>
+            <article>
+                <h3>Voltaje de Bobina</h3>
+                <img src="../img/rele-bobina.jpg" alt="Símbolo de bobina electromagnética">
+                <p>Para proyectos educativos, seleccionamos relés con bobinas de 5V, compatibles directamente con la lógica de salida de cualquier Arduino.</p>
+            </article>
+            <article>
+                <h3>Capacidad de Carga</h3>
+                <img src="../img/rele-potencia.jpg" alt="Icono de 10 Amperios">
+                <p>Están diseñados para manejar cargas robustas, soportando típicamente hasta 10A a 250V en corriente alterna (AC).</p>
+            </article>
+            <article>
+                <h3>Terminales de Salida</h3>
+                <img src="../img/rele-terminales.jpg" alt="Diagrama de terminales COM, NO y NC">
+                <p>Ofrecen tres estados de conexión: <span>COM</span> (común), <span>NO</span> (normalmente abierto) y <span>NC</span> (normalmente cerrado).</p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="bloque-1">
+            <div>
+                <img src="../img/funcionamiento-rele.jpg" alt="Diagrama de funcionamiento interno del relé">
+            </div>
+            <h2>¿Cómo realiza la conmutación?</h2>
+            <p>En su interior reside una bobina. Al recibir energía del Arduino, el campo magnético atrae una pieza metálica móvil que hace un <span>"clic" físico</span>, uniendo los contactos eléctricos de alta potencia. Analogía: Es como usar tu dedo para presionar un interruptor de pared, pero sustituyendo tu esfuerzo físico por la <span>fuerza magnética</span>.</p>
+        </section>
+
+        <hr>
+
+        <section id="bloque-2">
+            <h2>Seguridad y Montaje</h2>
+            <p>Es vital utilizar el módulo relé que incluye protecciones integradas como el optoacoplador y el diodo de protección para salvaguardar tu Arduino.</p>
+            
+            <img src="../img/diagrama-rele-arduino.jpg" alt="Esquema de conexión del módulo relé">
+
+            <article>
+                <h3>Instrucciones de Conexión</h3>
+                <p>El control del módulo es sencillo, pero recuerda que el manejo de voltajes de pared conlleva riesgos:</p>
+                <ul>
+                    <li><strong>VCC y GND:</strong> Alimentación directa desde los pines de la placa.</li>
+                    <li><strong>Pin IN:</strong> Conectado al pin digital 8 para enviar la señal de activación (HIGH/LOW).</li>
+                    <li><strong>Advertencia:</strong> <span>¡Nunca manipules cables conectados a la pared con el dispositivo encendido!</span></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Código de Ejemplo</h3>
+                <p>Un ciclo simple que alterna el estado del relé cada 5 segundos:</p>
+                <code>
+                    int relePin = 8; <br>
+                    void setup() { pinMode(relePin, OUTPUT); }<br>
+                    void loop() { <br>
+                    &nbsp;&nbsp;digitalWrite(relePin, HIGH); delay(5000); <br>
+                    &nbsp;&nbsp;digitalWrite(relePin, LOW); delay(5000); <br>
+                    }
+                </code>
+            </article>
+
+            <article>
+                <h3>Video Tutorial</h3>
+                <p>Mira la implementación práctica del control de electrodomésticos con seguridad:</p>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Lbl2ETJ--BU?si=bo10uhnpPU818Lkk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal Educativo - Aprende Robótica y Electrónica desde Cero</p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

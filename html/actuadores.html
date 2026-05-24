@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/arduino-logo.svg">
+    <title>Actuadores: La Musculatura del Robot - Aprende Robótica</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../img/home-2-svgrepo-com.svg" alt="Logo Arduino" class="logo">
+        </a>
+        <div class="header-buttons">
+        <button id="volver" class="btn-volver"><i class="bi bi-arrow-left"></i></button>
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+        </div>
+        <nav id="nav" class="nav">
+            <button id="cerrar" class="cerrar-menu"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li><a href="../html/motores.html">Motores</a></li>
+                <li><a href="../html/servo-motores.html">Servo motores</a></li>
+                <li><a href="../html/rele.html">Reles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Actuadores: La Musculatura del Mundo Robótico</h1>
+            <p>Los actuadores son los componentes encargados de convertir la energía eléctrica y las decisiones lógicas en acciones físicas tangibles. Son la <span>"musculatura" del sistema</span>, transformando la información procesada en movimiento, sonido o control de potencia real.</p>
+        </section>
+
+        <hr>
+
+        <section id="categorias">
+            <h2>Tipos de Acción Física</h2>
+            <article>
+                <h3>Motor DC</h3>
+                <img src="../img/motor-dc.jpg" alt="Motor de corriente continua con reductora">
+                <p>Proporciona rotación continua a alta velocidad, siendo la base fundamental para el desplazamiento de vehículos y ruedas en robots móviles.</p>
+            </article>
+            <article>
+                <h3>Servomotor</h3>
+                <img src="../img/servomotor.jpg" alt="Servomotor mini SG90">
+                <p>Permite un control preciso de la posición angular (entre 0° y 180°), ideal para mover articulaciones de brazos robóticos o timones de dirección.</p>
+            </article>
+            <article>
+                <h3>Módulo Relé</h3>
+                <img src="../img/rele.jpg" alt="Módulo relé para Arduino">
+                <p>Un interruptor electromagnético que permite a la placa Arduino controlar de forma segura dispositivos de alto voltaje, como lámparas o electrodomésticos.</p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="bloque-1">
+            <div>
+                <img src="../img/interaccion-actuador.jpg" alt="Brazo robótico moviendo un objeto">
+            </div>
+            <h2>El impacto en el mundo real</h2>
+            <p>Sin los actuadores, un robot tendría la capacidad de percibir su entorno y pensar una respuesta, pero carecería por completo de la facultad de interactuar o modificarlo. Gracias a ellos, cualquier estructura cobra vida y realiza un <span>trabajo físico útil</span> en el entorno real.</p>
+        </section>
+
+        <hr>
+
+        <section id="bloque-2">
+            <h2>El Flujo de la Automatización</h2>
+            <p>Todo sistema automatizado sigue un orden lógico constante de tres pasos para poder operar correctamente en tiempo real.</p>
+            
+            <img src="../img/flujo-automatizacion.jpg" alt="Diagrama de bloque: Sensor a Microcontrolador a Actuador">
+
+            <article>
+                <h3>La Cadena de Control</h3>
+                <p>La relación lógica se ejecuta de manera cíclica y fluida dentro del microcontrolador:</p>
+                <ul>
+                    <li><span>Entrada (Sensor):</span> Detecta una condición ambiental (como la presencia de un obstáculo cercano).</li>
+                    <li><span>Procesamiento (Arduino):</span> Analiza la lectura recibida y toma una decisión de acuerdo a las reglas del código.</li>
+                    <li><span>Salida (Actuador):</span> Ejecuta la respuesta física (como activar un buzzer de advertencia o desviar las ruedas).</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Aplicaciones Directas</h3>
+                <p>Estas capacidades permiten expandir las posibilidades del microcontrolador hacia sistemas mecánicos complejos:</p>
+                <ul>
+                    <li><span>Tracción Móvil:</span> Motores DC que impulsan las ruedas de un explorador terrestre o un robot seguidor de líneas.</li>
+                    <li><span>Domótica Educativa:</span> Mecanismos automáticos de apertura para persianas o compuertas usando servomotores.</li>
+                    <li><span>Sistemas de Alerta:</span> Emisión de tonos, melodías o señales sonoras de emergencia mediante el uso de un buzzer.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Explora cada Actuador</h3>
+                <p>Para aprender sobre el conexionado, el uso de librerías específicas y códigos de ejemplo, visita la página de cada componente en el menú.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal Educativo - Aprende Robótica y Electrónica desde Cero</p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
