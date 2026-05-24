@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/arduino-logo.svg">
+    <title>Sensor Ultrasónico (HC-SR04) - Aprende Robótica</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../img/home-2-svgrepo-com.svg" alt="Logo Arduino" class="logo">
+        </a>
+        <div class="header-buttons">
+        <button id="volver" class="btn-volver"><i class="bi bi-arrow-left"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>HC-SR04: El Radar Ultrasónico de tu Robot</h1>
+            <p>El HC-SR04 es el auténtico <span>radar de tu Arduino</span>. Permite medir distancias enviando ondas de sonido de alta frecuencia, convirtiéndose en el componente estrella para robots esquiva-obstáculos y medidores de nivel automatizados.</p>
+        </section>
+
+        <hr>
+
+        <section id="categorias">
+            <h2>Capacidades del Radar</h2>
+            <article>
+                <h3>Rango de Medición</h3>
+                <img src="../img/rango-hcsr04.jpg" alt="Rango de medición de 2cm a 4m">
+                <p>Es extremadamente versátil en distancias cortas, permitiendo lecturas precisas desde los 2 centímetros hasta los 4 metros.</p>
+            </article>
+            <article>
+                <h3>Ángulo de Apertura</h3>
+                <img src="../img/angulo-hcsr04.jpg" alt="Cono de apertura menor a 15 grados">
+                <p>Tiene un enfoque cerrado de menos de 15 grados, lo que garantiza que el robot detecte con precisión lo que tiene justo enfrente.</p>
+            </article>
+            <article>
+                <h3>Pines de Control</h3>
+                <img src="../img/pines-hcsr04.jpg" alt="Detalle de los 4 pines">
+                <p>Cuenta con 4 conectores clave: <strong>VCC</strong> (alimentación), <strong>Trig</strong> (disparador), <strong>Echo</strong> (receptor) y <strong>GND</strong> (tierra).</p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="bloque-1">
+            <div>
+                <img src="../img/sonar-funcionamiento.jpg" alt="Analogía de ecolocalización del murciélago">
+            </div>
+            <h2>¿Cómo calcula las distancias?</h2>
+            <p>Funciona igual que el sonar de un murciélago o un delfín. El pin Trig lanza un pulso de sonido imperceptible. El sonido viaja por el aire, rebota en un objeto y regresa. El pin Echo detecta el retorno y el Arduino mide el tiempo del viaje. Sabiendo la <span>velocidad del sonido</span>, el sistema calcula los centímetros exactos.</p>
+        </section>
+
+        <hr>
+
+        <section id="bloque-2">
+            <h2>Mapeo del Entorno e Interacción</h2>
+            <p>Una práctica común en robótica es montar el HC-SR04 sobre un servomotor para permitirle girar y escanear el entorno como si fuera una cabeza humana.</p>
+            
+            <img src="../img/diagrama-hcsr04-arduino.jpg" alt="Conexión de 4 hilos a Arduino Uno">
+
+            <article>
+                <h3>Conexiones del Circuito</h3>
+                <p>Conectamos los pines lógicos directamente a las entradas digitales del microcontrolador:</p>
+                <ul>
+                    <li><strong>Trig (Pin 7):</strong> Configurado como salida para emitir la ráfaga de sonido.</li>
+                    <li><strong>Echo (Pin 6):</strong> Configurado como entrada para escuchar el eco de retorno.</li>
+                    <li><strong>Alimentación:</strong> VCC directo a los 5V y GND a la tierra común.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Código del Programa</h3>
+                <p>Este código calcula la distancia utilizando la duración del pulso reflejado:</p>
+                <code>
+                    int trig = 7; int echo = 6;<br>
+                    void setup() { pinMode(trig, OUTPUT); pinMode(echo, INPUT); Serial.begin(9600); }<br>
+                    void loop() { <br>
+                    &nbsp;&nbsp;digitalWrite(trig, HIGH); delayMicroseconds(10); digitalWrite(trig, LOW);<br>
+                    &nbsp;&nbsp;long d = pulseIn(echo, HIGH); int dist = d * 0.034 / 2;<br>
+                    &nbsp;&nbsp;Serial.println(dist); delay(200);<br>
+                    }
+                </code>
+            </article>
+
+            <article>
+                <h3>Video Práctico</h3>
+                <p>Aprende a programar la lógica de evasión de obstáculos con este videotutorial dedicado:</p>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/mlw3APOUt8U?si=A_iTE17JcHYKN2ZW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal Educativo - Aprende Robótica y Electrónica desde Cero</p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

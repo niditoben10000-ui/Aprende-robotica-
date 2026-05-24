@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/arduino-logo.svg">
+    <title>Sensor de Temperatura (LM35) - Aprende Robótica</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../img/home-2-svgrepo-com.svg" alt="Logo Arduino" class="logo">
+        </a>
+        <div class="header-buttons">
+        <button id="volver" class="btn-volver"><i class="bi bi-arrow-left"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>LM35: Precisión en la Medición Térmica</h1>
+            <p>El LM35 es un sensor de precisión que entrega una salida de voltaje proporcional a la temperatura en grados Celsius. Es la herramienta ideal para dotar a tus proyectos de la capacidad de <span>monitorear el calor ambiental</span> de forma exacta y sencilla.</p>
+        </section>
+
+        <hr>
+
+        <section id="categorias">
+            <h2>Especificaciones Técnicas</h2>
+            <article>
+                <h3>Rango y Precisión</h3>
+                <img src="../img/rango-lm35.jpg" alt="Rango de temperatura del LM35">
+                <p>Capaz de medir desde los -55°C hasta los 150°C, con un margen de error mínimo de apenas 0.5°C a temperatura ambiente.</p>
+            </article>
+            <article>
+                <h3>Factor de Escala</h3>
+                <img src="../img/escala-voltaje.jpg" alt="Gráfico de 10mV por grado Celsius">
+                <p>Su funcionamiento es simple: por cada grado Celsius que detecta, el sensor aumenta su salida en 10mV. ¡Fácil de calcular!</p>
+            </article>
+            <article>
+                <h3>Voltaje de Operación</h3>
+                <img src="../img/voltaje-lm35.jpg" alt="Alimentación del sensor LM35">
+                <p>Es muy versátil, ya que puede alimentarse con cualquier voltaje estable entre los 4V y los 30V.</p>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="bloque-1">
+            <div>
+                <img src="../img/funcionamiento-semiconductor.jpg" alt="Chip interno del LM35">
+            </div>
+            <h2>¿Cómo mide el calor?</h2>
+            <p>Internamente, el LM35 es un circuito integrado que aprovecha la propiedad de los semiconductores, donde el voltaje varía de forma predecible con la temperatura. Analogía: Es como un termómetro de mercurio, pero en lugar de subir líquido, lo que <span>sube es el voltaje eléctrico</span>.</p>
+        </section>
+
+        <hr>
+
+        <section id="bloque-2">
+            <h2>Implementación con Arduino</h2>
+            <p>A diferencia de otros sensores, el LM35 se conecta directamente sin necesidad de resistencias externas, lo que simplifica mucho el cableado en la protoboard.</p>
+            
+            <img src="../img/diagrama-lm35-arduino.jpg" alt="Conexión del LM35 al Arduino">
+
+            <article>
+                <h3>Configuración de Pines</h3>
+                <p>Mirando el sensor por su cara plana (donde tiene el nombre grabado), las patas se conectan así:</p>
+                <ul>
+                    <li><strong>Pata Izquierda (VCC):</strong> Conectada a los 5V del Arduino.</li>
+                    <li><strong>Pata Central (Vout):</strong> Conectada al pin analógico <strong>A1</strong>.</li>
+                    <li><strong>Pata Derecha (GND):</strong> Conectada al pin de tierra.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>Código de Programación</h3>
+                <p>Utilizamos una fórmula matemática para convertir la lectura digital en grados Celsius reales:</p>
+                <code>
+                    float temp; <br>
+                    void setup() { Serial.begin(9600); }<br>
+                    void loop() { <br>
+                    &nbsp;&nbsp;temp = (analogRead(A1) * 500.0) / 1024.0; <br>
+                    &nbsp;&nbsp;Serial.println(temp); delay(1000); <br>
+                    }
+                </code>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Portal Educativo - Aprende Robótica y Electrónica desde Cero</p>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
